@@ -6,7 +6,7 @@ PASSO A PASSO - DEPLOY NO GITHUB PAGES
 4. No GitHub, entre no repositório > Settings > Pages.
 5. Em Build and deployment, selecione Source: GitHub Actions.
 6. Vá na aba Actions.
-7. O workflow 'Deploy site to GitHub Pages' vai rodar automaticamente após o push.
+7. O workflow 'Deploy site to GitHub Pages' vai rodar automaticamente após o push na branch main ou master.
 8. Ao finalizar, o GitHub mostrará a URL publicada.
 
 Observação:

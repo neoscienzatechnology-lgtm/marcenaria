@@ -1,6 +1,6 @@
 # Marcenaria Tarozzo — GitHub Pages
 
-Site em React + Vite + Tailwind, pronto para deploy no GitHub Pages.
+Site em React + Vite + Tailwind, com workflow pronto para deploy no GitHub Pages.
 
 ## Como publicar
 
