@@ -8,29 +8,53 @@ const creatives = {
   closet: img("closet-planejado.png"),
   living: img("sala-painel-madeira.png"),
   bedroom: img("quarto-planejado.png"),
-  brand: img("manual-marca-completo.png"),
-  logoPrincipal: img("logo-principal-manual.png"),
-  logoVerde: img("logo-verde-manual.png"),
-  logoClaro: img("logo-claro-manual.png"),
-  placaRedonda: img("placa-redonda-manual.png"),
-  papelaria: img("papelaria-manual.png"),
-  cartao: img("cartao-visita-manual.png"),
-  variacoes: img("variacoes-marca-manual.png"),
-  icones: img("icones-manual.png"),
+  logoClean: img("logo-tarozzo-limpo.png"),
 };
 
 const services = [
-  ["Móveis planejados", "Cozinhas, salas, dormitórios, banheiros e ambientes corporativos feitos sob medida."],
-  ["Ambientes completos", "Projetos integrados que unem estética, funcionalidade e aproveitamento inteligente do espaço."],
-  ["Acabamento premium", "Materiais selecionados, encaixes precisos e atenção ao detalhe em cada etapa."],
-  ["Projetos personalizados", "Soluções criadas para a rotina, o estilo e as necessidades de cada cliente."],
+  {
+    title: "Móveis planejados",
+    text: "Cozinhas, salas, dormitórios, banheiros e ambientes corporativos feitos sob medida.",
+    image: creatives.closet,
+  },
+  {
+    title: "Ambientes completos",
+    text: "Projetos integrados que unem estética, funcionalidade e aproveitamento inteligente do espaço.",
+    image: creatives.living,
+  },
+  {
+    title: "Acabamento premium",
+    text: "Materiais selecionados, encaixes precisos e atenção ao detalhe em cada etapa.",
+    image: creatives.hero,
+  },
+  {
+    title: "Projetos personalizados",
+    text: "Soluções criadas para a rotina, o estilo e as necessidades de cada cliente.",
+    image: creatives.office,
+  },
 ];
 
 const pillars = [
-  ["Planejamento", "Cada projeto começa com escuta, medidas e entendimento real do ambiente."],
-  ["Qualidade", "Materiais de alto padrão e execução cuidadosa para entregar durabilidade."],
-  ["Compromisso", "Acompanhamento próximo, comunicação clara e responsabilidade em cada fase."],
-  ["Detalhes", "Acabamentos e escolhas que transformam móveis em experiências de uso."],
+  {
+    title: "Planejamento",
+    text: "Cada projeto começa com escuta, medidas e entendimento real do ambiente.",
+    image: creatives.office,
+  },
+  {
+    title: "Qualidade",
+    text: "Materiais de alto padrão e execução cuidadosa para entregar durabilidade.",
+    image: creatives.living,
+  },
+  {
+    title: "Compromisso",
+    text: "Acompanhamento próximo, comunicação clara e responsabilidade em cada fase.",
+    image: creatives.bedroom,
+  },
+  {
+    title: "Detalhes",
+    text: "Acabamentos e escolhas que transformam móveis em experiências de uso.",
+    image: creatives.hero,
+  },
 ];
 
 const portfolio = [
@@ -52,11 +76,11 @@ const steps = [
 
 function Logo() {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center">
       <img
-        src={creatives.logoVerde}
+        src={creatives.logoClean}
         alt="Marcenaria Tarozzo - Detalhes para a vida"
-        className="h-14 w-auto rounded-xl object-contain"
+        className="h-12 w-auto max-w-[210px] object-contain sm:h-14"
       />
     </div>
   );
@@ -68,8 +92,8 @@ function Button({ children, outline = false }) {
       href="#contato"
       className={
         outline
-          ? "inline-flex justify-center rounded-full border border-white/30 px-7 py-4 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-white/10"
-          : "inline-flex justify-center rounded-full bg-[#C47E3A] px-7 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-xl transition hover:bg-[#A9672E]"
+          ? "inline-flex max-w-full justify-center rounded-full border border-white/30 px-7 py-4 text-center text-sm font-bold uppercase tracking-wide text-white transition hover:bg-white/10"
+          : "inline-flex max-w-full justify-center rounded-full bg-[#C47E3A] px-7 py-4 text-center text-sm font-bold uppercase tracking-wide text-white shadow-xl transition hover:bg-[#A9672E]"
       }
     >
       {children}
@@ -88,12 +112,12 @@ function SectionTag({ children }) {
 
 function ImageBlock({ src, alt, className = "", label, title }) {
   return (
-    <div className={`group relative overflow-hidden rounded-[2rem] bg-[#10281F] shadow-2xl ${className}`}>
+    <div className={`group relative max-w-full overflow-hidden rounded-[2rem] bg-[#10281F] shadow-2xl ${className}`}>
       <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0b2118]/90 via-[#0b2118]/35 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-white/5" />
       <div className="absolute left-8 top-8 rounded-3xl border border-[#C47E3A]/40 bg-[#10281F]/60 p-3 backdrop-blur">
-        <img src={creatives.logoVerde} alt="Logo Marcenaria Tarozzo" className="h-16 w-auto object-contain" />
+        <img src={creatives.logoClean} alt="Logo Marcenaria Tarozzo" className="h-12 w-auto max-w-[190px] object-contain" />
       </div>
       {(label || title) && (
         <div className="absolute bottom-8 left-8 right-8 max-w-md rounded-[1.5rem] border border-white/10 bg-[#10281F]/72 p-6 text-white backdrop-blur-md">
@@ -120,7 +144,7 @@ function PortfolioCard({ title, src, index }) {
 
 export default function App() {
   return (
-    <main className="min-h-screen bg-[#F5F3EF] text-[#333333]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5F3EF] text-[#333333]">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#1F3A2E]/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Logo />
@@ -137,9 +161,9 @@ export default function App() {
       <section className="relative overflow-hidden bg-[#1F3A2E] text-white">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, #C47E3A, transparent 28%), radial-gradient(circle at 80% 10%, #D2C5B5, transparent 18%)" }} />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-28">
-          <div>
+          <div className="min-w-0">
             <SectionTag>Detalhes para a vida</SectionTag>
-            <h1 className="max-w-4xl text-5xl font-black uppercase leading-[0.95] tracking-tight md:text-7xl">
+            <h1 className="max-w-4xl break-words text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl md:text-7xl">
               Marcenaria sob medida com acabamento premium.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/75">
@@ -156,18 +180,18 @@ export default function App() {
 
       <section id="sobre" className="px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <SectionTag>Sobre a marca</SectionTag>
-            <h2 className="text-4xl font-black uppercase tracking-tight text-[#1F3A2E] md:text-5xl">
+          <div className="min-w-0">
+            <SectionTag>Sobre a marcenaria</SectionTag>
+            <h2 className="break-words text-3xl font-black uppercase tracking-tight text-[#1F3A2E] sm:text-4xl md:text-5xl">
               Design, madeira e precisão em cada detalhe.
             </h2>
           </div>
-          <div className="space-y-6 text-lg leading-8 text-[#333333]/75">
+          <div className="min-w-0 space-y-6 text-lg leading-8 text-[#333333]/75">
             <p>
               A Marcenaria Tarozzo cria soluções sob medida para clientes que valorizam ambientes bem planejados, acabamento refinado e atendimento próximo. Cada projeto é pensado para transformar rotina, estética e funcionalidade em uma entrega única.
             </p>
             <p>
-              A identidade visual combina verde escuro, tons amadeirados, cobre e bege, transmitindo sofisticação, confiança, qualidade artesanal e modernidade.
+              Do primeiro desenho à instalação final, o trabalho combina técnica, escolha cuidadosa de materiais e atenção ao acabamento para entregar móveis bonitos, duráveis e funcionais.
             </p>
           </div>
         </div>
@@ -180,45 +204,19 @@ export default function App() {
         </div>
       </section>
 
-      <section className="bg-[#1F3A2E] px-5 py-24 text-white lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 max-w-3xl">
-            <SectionTag>Manual de marca aplicado</SectionTag>
-            <h2 className="text-4xl font-black uppercase tracking-tight md:text-5xl">Elementos reais da identidade visual.</h2>
-            <p className="mt-6 text-lg leading-8 text-white/70">
-              Logos, variações, ícones e aplicações foram inseridos como imagens reais extraídas do manual de marca da Marcenaria Tarozzo.
-            </p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-[1.7rem] bg-white p-4 shadow-xl">
-              <img src={creatives.logoClaro} alt="Logo claro real do manual" className="h-52 w-full rounded-[1.2rem] object-contain" />
-            </div>
-            <div className="rounded-[1.7rem] bg-[#13251D] p-4 shadow-xl">
-              <img src={creatives.logoVerde} alt="Logo verde real do manual" className="h-52 w-full rounded-[1.2rem] object-contain" />
-            </div>
-            <div className="rounded-[1.7rem] bg-white p-4 shadow-xl">
-              <img src={creatives.cartao} alt="Cartão de visita real do manual" className="h-52 w-full rounded-[1.2rem] object-cover" />
-            </div>
-            <div className="rounded-[1.7rem] bg-white p-4 shadow-xl">
-              <img src={creatives.placaRedonda} alt="Placa redonda real do manual" className="h-52 w-full rounded-[1.2rem] object-cover" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="servicos" className="bg-[#EFE8DF] px-5 py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 max-w-3xl">
             <SectionTag>Serviços</SectionTag>
-            <h2 className="text-4xl font-black uppercase tracking-tight text-[#1F3A2E] md:text-5xl">
+            <h2 className="break-words text-3xl font-black uppercase tracking-tight text-[#1F3A2E] sm:text-4xl md:text-5xl">
               Soluções completas para ambientes personalizados.
             </h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {services.map(([title, text]) => (
+            {services.map(({ title, text, image }) => (
               <div key={title} className="rounded-[1.7rem] bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                <div className="mb-7 flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-[#1F3A2E]">
-                  <img src={creatives.logoVerde} alt="Símbolo Marcenaria Tarozzo" className="h-14 w-auto object-contain" />
+                <div className="mb-7 h-40 overflow-hidden rounded-[1.2rem] bg-[#1F3A2E]">
+                  <img src={image} alt={title} className="h-full w-full object-cover" />
                 </div>
                 <h3 className="text-xl font-black uppercase tracking-tight text-[#1F3A2E]">{title}</h3>
                 <p className="mt-4 leading-7 text-[#333333]/70">{text}</p>
@@ -231,15 +229,19 @@ export default function App() {
       <section className="bg-[#1F3A2E] px-5 py-24 text-white lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 max-w-3xl">
-            <SectionTag>Pilares da marca</SectionTag>
-            <h2 className="text-4xl font-black uppercase tracking-tight md:text-5xl">O que guia cada entrega.</h2>
+            <SectionTag>Pilares da marcenaria</SectionTag>
+            <h2 className="break-words text-3xl font-black uppercase tracking-tight sm:text-4xl md:text-5xl">O que guia cada entrega.</h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {pillars.map(([title, text]) => (
-              <div key={title} className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6">
-                <div className="mb-6 h-10 w-10 rounded-full border border-[#C47E3A]/50" />
-                <h3 className="font-black uppercase tracking-wide text-[#C47E3A]">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-white/65">{text}</p>
+            {pillars.map(({ title, text, image }) => (
+              <div key={title} className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04]">
+                <div className="h-44 overflow-hidden">
+                  <img src={image} alt={title} className="h-full w-full object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-black uppercase tracking-wide text-[#C47E3A]">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-white/65">{text}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -250,7 +252,7 @@ export default function App() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <SectionTag>Portfólio</SectionTag>
-            <h2 className="mx-auto max-w-4xl text-4xl font-black uppercase tracking-tight text-[#1F3A2E] md:text-5xl">
+            <h2 className="mx-auto max-w-4xl break-words text-3xl font-black uppercase tracking-tight text-[#1F3A2E] sm:text-4xl md:text-5xl">
               Projetos que valorizam o espaço e o estilo de cada cliente.
             </h2>
           </div>
@@ -266,7 +268,7 @@ export default function App() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
             <SectionTag>Processo</SectionTag>
-            <h2 className="text-4xl font-black uppercase tracking-tight text-[#1F3A2E] md:text-5xl">Da ideia ao ambiente pronto.</h2>
+            <h2 className="break-words text-3xl font-black uppercase tracking-tight text-[#1F3A2E] sm:text-4xl md:text-5xl">Da ideia ao ambiente pronto.</h2>
             <p className="mt-6 text-lg leading-8 text-[#333333]/72">Um fluxo claro para que cada decisão seja feita com segurança e atenção aos detalhes.</p>
             <ImageBlock src={creatives.office} alt="Processo de projeto" className="mt-10 h-80" label="Do projeto à instalação" title="Tudo planejado com precisão." />
           </div>
@@ -286,7 +288,7 @@ export default function App() {
         <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr]">
           <div>
             <SectionTag>Contato</SectionTag>
-            <h2 className="max-w-4xl text-4xl font-black uppercase tracking-tight md:text-6xl">Pronto para transformar seu ambiente?</h2>
+            <h2 className="max-w-4xl break-words text-3xl font-black uppercase tracking-tight sm:text-4xl md:text-6xl">Pronto para transformar seu ambiente?</h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">Solicite um orçamento e receba uma proposta personalizada para seu projeto residencial ou comercial.</p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Button>Chamar no WhatsApp</Button>
