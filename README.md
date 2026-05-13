@@ -1,31 +1,29 @@
-# Marcenaria Tarozzo — GitHub Pages
+# Marcenaria Tarozzo — GitHub Pages com imagens
 
-Site em React + Vite + Tailwind, com workflow pronto para deploy no GitHub Pages.
+Versão corrigida com imagens reais dentro de `public/images`.
 
-## Como publicar
+## Como atualizar o site publicado
 
-1. Crie um repositório no GitHub.
-2. Envie todos os arquivos deste projeto para o repositório.
-3. Vá em **Settings > Pages**.
-4. Em **Build and deployment**, selecione **Source: GitHub Actions**.
-5. Faça um push na branch `main` ou `master`.
-6. Abra a aba **Actions** e acompanhe o workflow **Deploy site to GitHub Pages**.
-7. Quando terminar, o link do site aparecerá no resumo do deploy e em **Settings > Pages**.
+1. Extraia este ZIP.
+2. Entre no repositório `marcenaria` no GitHub.
+3. Apague/substitua os arquivos atuais pelos arquivos deste pacote.
+4. Faça commit na branch `main` ou `master`.
+5. Vá na aba **Actions** e aguarde o workflow finalizar.
+6. O site em GitHub Pages será atualizado.
 
-## Rodar localmente
+## Importante
 
-```bash
-npm install
-npm run dev
-```
+As imagens estão dentro de `public/images` e são chamadas no React usando `import.meta.env.BASE_URL`. Isso evita o erro de imagens quebradas no GitHub Pages, inclusive quando o site está em `/marcenaria/`.
 
-## Build local
 
-```bash
-npm run build
-npm run preview
-```
+## Versão MANUAL-REAL
 
-## Personalizações rápidas
+Esta versão usa:
+- `public/images/logo-principal-manual.png`
+- `public/images/logo-verde-manual.png`
+- `public/images/logo-claro-manual.png`
+- `public/images/cartao-visita-manual.png`
+- `public/images/placa-redonda-manual.png`
+- `public/images/manual-marca-completo.png`
 
-Edite `src/App.jsx` para trocar telefone, e-mail, Instagram e textos.
+Ou seja: o logo e aplicações principais foram extraídos do manual de marca atualizado com o slogan **Detalhes para a vida**.

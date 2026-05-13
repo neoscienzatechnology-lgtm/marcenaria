@@ -1,0 +1,16 @@
+CORREÇÃO DAS IMAGENS - GITHUB PAGES
+
+O site anterior ficou sem imagens porque o pacote não continha os arquivos visuais reais.
+Esta versão inclui:
+- public/images/hero-ambiente-premium.png
+- public/images/home-office-projeto.png
+- public/images/closet-planejado.png
+- public/images/sala-painel-madeira.png
+- public/images/quarto-planejado.png
+- public/images/manual-marca.png
+
+Para corrigir:
+1. Extraia este ZIP.
+2. Substitua o conteúdo do repositório GitHub pelo conteúdo desta pasta.
+3. Faça commit/push.
+4. Aguarde o GitHub Actions republicar.
